@@ -108,8 +108,14 @@ src/
 assets/                       icon.png, splash-icon.png (генерятся скриптом)
 scripts/make-icons.mjs        логотип → PNG, `npm run icons`
 architecture.md  README.md  AGENTS.md
-app.config.ts  eas.json  eslint.config.js  tsconfig.json
+app.config.ts  eas.json  eslint.config.js  tsconfig.json  metro.config.js
 ```
+
+В `metro.config.js` одна правка, и она обязательная: `three` принудительно разрешается в
+ESM-сборку. CJS-сборка three 0.187 на старте зовёт `process.emitWarning`, которого в React Native
+нет, а `@react-three/fiber` подключает three через `require()` — Metro по условию `"require"`
+берёт именно её, и приложение падает на импорте сцены. Побочный плюс: один экземпляр three на
+приложение вместо двух.
 
 Правило зависимостей — строго в одну сторону: `app/` → `scene · furniture · ui` → `store` →
 `scan · storage` → `core`. Слой никогда не импортирует то, что выше. `scene` ничего не знает про
