@@ -1,22 +1,49 @@
 {
   "name": "3djacek",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "expo-router/entry",
   "dependencies": {
+    "@react-three/fiber": "^9.8.2",
     "expo": "~58.0.23",
+    "expo-asset": "~58.0.20",
+    "expo-build-properties": "~58.0.12",
+    "expo-constants": "~58.0.15",
+    "expo-dev-client": "~58.0.18",
+    "expo-device": "~58.0.5",
+    "expo-file-system": "~58.0.13",
+    "expo-gl": "~58.0.4",
+    "expo-haptics": "~58.0.7",
+    "expo-linking": "~58.0.16",
+    "expo-roomplan": "^1.3.2",
+    "expo-router": "~58.0.30",
+    "expo-splash-screen": "~58.0.13",
     "expo-status-bar": "~58.0.4",
     "react": "19.3.0",
-    "react-native": "0.88.1"
+    "react-dom": "19.3.0",
+    "react-native": "0.88.1",
+    "react-native-gesture-handler": "~3.3.0",
+    "react-native-safe-area-context": "~5.11.1",
+    "react-native-screens": "~4.30.1",
+    "react-native-svg": "15.16.0",
+    "three": "^0.187.0",
+    "zustand": "^5.1.0"
   },
   "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
     "@types/react": "~19.3.0",
+    "@types/three": "^0.187.0",
+    "eslint": "^9.0.0",
+    "eslint-config-expo": "~58.0.4",
     "typescript": "~6.0.3"
   },
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "icons": "node scripts/make-icons.mjs",
+    "typecheck": "tsc --noEmit",
+    "lint": "expo lint"
   },
   "private": true
 }
